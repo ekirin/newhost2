@@ -1,1 +1,1 @@
-This project based on <a href="http://vertx.io" target="_black">vert.x</a> toolkit to simplify web applications development.
+This project based on http://vertx.io toolkit to simplify web applications development.
