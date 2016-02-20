@@ -1,13 +1,13 @@
 # newhost2
 ###### Reactive development platform
-This project based on <a href="http://vertx.io" target="_black">vert.x</a> toolkit to simplify web development.
+This project based onup <a href="http://vertx.io" target="_black">vert.x</a> toolkit to simplify web development.
 <br/>
 
 Newhost2 lets you to develop web applications with minimal effort. You just define a controller class for your route by an annotation and that's all. 
 
 # Controller example
 
-If you send request for the first time then will be created blank page (<code>index.html</code>) where you can put your content. 
+If you send a request for the first time then will be created blank page (<code>index.html</code>) where you can put your content. 
 No need to create that page manually.
 
 ```java
