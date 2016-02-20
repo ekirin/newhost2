@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box; }
+
+.page-header {
+    color: #fff;
+    text-align: center;
+    /*background-color: #2980b9;
+    background-image: linear-gradient(120deg, #2980b9, #2c3e50);*/
+
+    background: #2980b9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(120deg, #2980b9 , #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(120deg, #2980b9 , #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media screen and (min-width: 64em) {
+    .page-header {
+        padding: 5rem 6rem; } }
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .page-header {
+        padding: 3rem 4rem; } }
+
+@media screen and (max-width: 42em) {
+    .page-header {
+        padding: 2rem 1rem; } }
+
+.btn-jumbotron {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
+.btn-jumbotron + .btn-jumbotron {
+    margin-left: 1rem; }
+
+.btn-jumbotron:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3); }
+
+@media screen and (min-width: 64em) {
+    .btn-jumbotron {
+        padding: 0.75rem 1rem; } }
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .btn-jumbotron {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.9rem; } }
+
+@media screen and (max-width: 42em) {
+    .btn-jumbotron {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 0.9rem; }
+    .btn-jumbotron + .btn-jumbotron {
+        margin-top: 1rem;
+        margin-left: 0; } }
+
+.app-header {
+    color: #2980b9;
+}

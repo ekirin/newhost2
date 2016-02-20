@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<body>
+<div th:fragment="form(form, errorBlock)">
+    <div class="row" th:if="${context.get('errors') != null}" th:object="${context.get('errors')}" th:attr="style=${errorBlock}?'':'display: none;'">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="alert alert-danger" role="alert" th:each="prod : *{errors}">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <strong th:text="#{LABEL.FORM.+ ${#strings.toUpperCase(prod.field)}}">Error!</strong> <span
+                    th:text="${prod.message}" th:attr="id='err-' + ${prod.field}"></span>
+            </div>
+        </div>
+    </div>
+
+    <span id="form-state" style="display: none;" th:if="${context.get('state') != null}" th:text="${context.get('state')}"></span>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6" id="form"></div>
+    </div>
+
+    <script th:inline="javascript">
+        /*[+
+         var form = [[${form}]]
+
+         $('#' + form).load('/static/html/' + form + '.html?mode=auto');
+         +]*/
+    </script>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<form method="post" action="upload" enctype="multipart/form-data">
+<span style="display: none;" id="lang-form">
+    {
+  "ru" : {
+    "author" : {
+      "label" : "Фамилия и имя",
+      "description" : "",
+      "placeholder" : "",
+      "helper" : ""
+    },
+    "btn" : {
+      "submit" : {
+        "label" : "Отправить"
+      }
+    },
+    "email" : {
+      "label" : "Email",
+      "description" : "",
+      "placeholder" : "",
+      "helper" : ""
+    },
+    "file" : {
+      "label" : "Техническое задание",
+      "description" : "",
+      "placeholder" : "PLACEHOLDER.ATTACHTECHNICALTASK.FILE",
+      "helper" : ""
+    }
+  },
+  "en" : {
+    "author" : {
+      "label" : "Full name",
+      "description" : "",
+      "placeholder" : "",
+      "helper" : ""
+    },
+    "btn" : {
+      "submit" : {
+        "label" : "Submit"
+      }
+    },
+    "email" : {
+      "label" : "Email",
+      "description" : "",
+      "placeholder" : "",
+      "helper" : ""
+    },
+    "file" : {
+      "label" : "Technical task",
+      "description" : "",
+      "placeholder" : "PLACEHOLDER.ATTACHTECHNICALTASK.FILE",
+      "helper" : ""
+    }
+  }
+}
+</span>
+<script type="application/javascript">
+
+    var json = $("#form-state").text();
+
+    // If the form submitted with error then save entered values.
+    if (json.length != 0) {
+        var state = jQuery.parseJSON(json);
+    }
+
+    var jsonLang = $("#lang-form").text();
+
+    if (jsonLang.length != 0) {
+        var locale = jQuery.parseJSON(jsonLang);
+        var lg = Cookies.get("nh2_user_locale");
+    }
+
+    function err(fld) {
+
+        lang(fld);
+
+        var err = $("#err-" + fld);
+
+        $(err).clone().insertAfter("#" + fld); // copy and place error message under error field
+
+        if (err.length != 0) {
+            $("#section-" + fld).addClass("has-error"); // highlight error field
+        }
+
+        $("#" + fld).val(state != undefined ? state[fld] : ''); // Set earlier entered data.
+    }
+
+    function lang(fld) {
+
+        $("#" + fld + "-lbl").text(locale[lg][fld].label);
+        $("#" + fld).attr("placeholder", locale[lg][fld].placeholder);
+
+        $("#submit").text(locale[lg].btn.submit.label);
+    }
+</script>
+
+<script>
+    // support input with file type
+    $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready( function() {
+        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+        });
+    });
+</script>
+<script>
+    err("author");
+</script>
+<div class="form-group" id="section-author">
+    <label class="control-label" for="author" id="author-lbl">Фамилия и имя</label>
+    <input class="form-control" id="author" placeholder="Фамилия и имя" name="author">
+</div>
+<script>
+    err("email");
+</script>
+<div class="form-group" id="section-email">
+    <label class="control-label" for="email" id="email-lbl">Email</label>
+    <input class="form-control" id="email" placeholder="Email" name="email">
+</div>
+<script>
+    err("file");
+</script>
+<div class="form-group" id="section-file">
+    <label class="control-label" for="file" id="file-lbl">Техническое задание</label>
+    <div class="input-group" id="file">
+        <input type="text" class="form-control" readonly/>
+        <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  <!-- TODO localization is not supported.-->
+                    Select file&hellip; <input type="file" name="file" multiple/>
+              </span>
+        </span>
+    </div>
+</div>
+<button id="submit" type="submit" class="btn btn-primary">submit</button>
+</form>

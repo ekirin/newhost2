@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" th:attr="lang=$'{'context.get('lang')'}'" xmlns:th="http://www.thymeleaf.org">
+
+<!--
+This file is used as template to generate content page for a new link.
+No need to create page when you create a new controller path.
+It will be created automatically then you can edit it as you wish.
+-->
+
+<head th:replace="include/header :: #header"></head>
+
+<body>
+
+<div th:replace="include/header :: #header2"></div>
+
+<div class="container">{0}</div>
+
+<div th:replace="include/footer :: #copyright (ver=$'{'context.get('ver')'}')"></div>
+<div th:include="include/footer :: #scripts"></div>
+
+</body>
+</html>

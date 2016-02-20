@@ -1,0 +1,63 @@
+<script type="application/javascript">
+
+    var json = $("#form-state").text();
+
+    // If the form submitted with error then save entered values.
+    if (json.length != 0) {
+        var state = jQuery.parseJSON(json);
+    }
+
+    var jsonLang = $("#lang-form").text();
+
+    if (jsonLang.length != 0) {
+        var locale = jQuery.parseJSON(jsonLang);
+        var lg = Cookies.get("nh2_user_locale");
+    }
+
+    function err(fld) {
+
+        lang(fld);
+
+        var err = $("#err-" + fld);
+
+        $(err).clone().insertAfter("#" + fld); // copy and place error message under error field
+
+        if (err.length != 0) {
+            $("#section-" + fld).addClass("has-error"); // highlight error field
+        }
+
+        $("#" + fld).val(state != undefined ? state[fld] : ''); // Set earlier entered data.
+    }
+
+    function lang(fld) {
+
+        $("#" + fld + "-lbl").text(locale[lg][fld].label);
+        $("#" + fld).attr("placeholder", locale[lg][fld].placeholder);
+
+        $("#submit").text(locale[lg].btn.submit.label);
+    }
+</script>
+
+<script>
+    // support input with file type
+    $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready( function() {
+        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+        });
+    });
+</script>

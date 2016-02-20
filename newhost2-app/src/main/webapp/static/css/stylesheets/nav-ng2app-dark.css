@@ -1,0 +1,80 @@
+/* navbar */
+.navbar-nh2app {
+    /*background-color: #2980b9;
+    background-image: linear-gradient(120deg, #2980b9, #2c3e50);*/
+
+    background: #2980b9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(120deg, #2980b9 , #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(120deg, #2980b9 , #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-color: #E7E7E7;
+}
+/* title */
+.navbar-nh2app .navbar-brand {
+    color: #fff;
+}
+.navbar-nh2app .navbar-brand:hover,
+.navbar-nh2app .navbar-brand:focus {
+    color: #f0dc69;
+}
+/* link */
+.navbar-nh2app .navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.7); // menu item
+}
+.navbar-nh2app .navbar-nav > li > a:hover{
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-nh2app .navbar-nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.8);
+}
+.navbar-nh2app .navbar-nav > .active > a,
+.navbar-nh2app .navbar-nav > .active > a:hover,
+.navbar-nh2app .navbar-nav > .active > a:focus {
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.08);
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+.navbar-nh2app .navbar-nav > .open > a,
+.navbar-nh2app .navbar-nav > .open > a:hover,
+.navbar-nh2app .navbar-nav > .open > a:focus {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/* caret */
+.navbar-nh2app .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-nh2app .navbar-nav > .dropdown > a:hover .caret,
+.navbar-nh2app .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-nh2app .navbar-nav > .open > a .caret,
+.navbar-nh2app .navbar-nav > .open > a:hover .caret,
+.navbar-nh2app .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* mobile version */
+.navbar-nh2app .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-nh2app .navbar-toggle:hover,
+.navbar-nh2app .navbar-toggle:focus {
+    background-color: #DDD;
+}
+.navbar-nh2app .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+@media (max-width: 767px) {
+    .navbar-nh2app .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-nh2app .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-nh2app .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+    }
+}
