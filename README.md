@@ -2,7 +2,8 @@
 ###### Reactive development platform
 This project based on <a href="http://vertx.io" target="_black">vert.x</a> toolkit to simplify web development.
 <br/>
-Newhost2 lets you to develop web applications with minimal effort. You just define a controller class for your route by annotation and that's all. 
+
+Newhost2 lets you to develop web applications with minimal effort. You just define a controller class for your route by an annotation and that's all. 
 
 # Controller example
 
