@@ -54,7 +54,7 @@ public class Nh2HttpServerRouter {
         serverRouter.router.route("/static/json/*").handler(StaticHandler.create().setWebRoot("static/json").setCachingEnabled(false));
 
         new JaxyRoutes().findJaxyPaths((httpMethod, path, controller, action) -> {
-            log.debug("Register path " + path);
+            log.debug("Register route " + path);
             serverRouter.new RequestRouter(httpMethod).route(path).with(controller, action);
         });
 
